@@ -52,6 +52,7 @@ public class Test {
 					error = Math.abs(target_output[0] - output[0]);
 					tot_error_test += error;
 				}
+				//esn.ShowState();
 			}
 			double avg_error_train = tot_error_train / train_period;
 			double avg_error_test = tot_error_test / test_period;

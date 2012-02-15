@@ -101,5 +101,12 @@ public class EchoStateLiquid {
 		}
 		return result;
 	}
+	
+	public void ShowState() {
+		System.out.print("\n");
+		for (int j = 0; j < hidden_dimension; j++) {
+			System.out.print(context[j] + ", ");
+		}
+	}
 
 }

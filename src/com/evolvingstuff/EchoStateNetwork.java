@@ -27,5 +27,9 @@ public class EchoStateNetwork {
 		double[] output = readout.Next(liquid_state);
 		return output;
 	}
+	
+	public void ShowState() {
+		liquid.ShowState();
+	}
 
 }
