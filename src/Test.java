@@ -18,7 +18,7 @@ public class Test {
 		int input_dimension = 1;
 		int output_dimension = 1;
 		int liquid_dimension = 100;
-		int readout_dimension = 25;
+		int readout_dimension = 10;
 		NeuralNetwork.LEARNING_RATE = 0.1;
 		EchoStateNetwork esn = new EchoStateNetwork(r, input_dimension, liquid_dimension, readout_dimension, output_dimension);
 		int washout_period = 99;
@@ -32,7 +32,7 @@ public class Test {
 		double[] target_output = new double[output_dimension];
 		double error;
 		
-		for (int epoch = 0; epoch < 1000; epoch++) {
+		for (int epoch = 0; epoch < 5000; epoch++) {
 			esn.Reset();
 			double tot_error_train = 0;
 			double tot_error_test = 0;
@@ -55,7 +55,8 @@ public class Test {
 			}
 			double avg_error_train = tot_error_train / train_period;
 			double avg_error_test = tot_error_test / test_period;
-			System.out.println("["+epoch+"]\tTrain error: " + avg_error_train + "\tTest error: " + avg_error_test);
+			if (epoch % 10 == 9 || epoch == 0)
+			System.out.println("["+(epoch + 1)+"]\tTrain error: " + avg_error_train + "\tTest error: " + avg_error_test);
 		}
 		System.out.println("done.");
 	}
