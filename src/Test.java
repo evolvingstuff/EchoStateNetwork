@@ -9,7 +9,7 @@ import com.evolvingstuff.NeuralNetwork;
 
 public class Test {
 	public static void main(String[] args) throws Exception {
-		System.out.println("Test");
+		System.out.println("Test of Echo State Network");
 		List<Double> data = new ArrayList<Double>();
 		Scanner sc = new Scanner(new File("mg30.dat"));
 		while (sc.hasNext())

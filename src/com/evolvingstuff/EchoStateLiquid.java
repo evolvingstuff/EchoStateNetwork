@@ -14,7 +14,8 @@ public class EchoStateLiquid {
 	private int input_dimension;
 	private int hidden_dimension;
 	private double input_weight_range = 1.0;
-	private double spectral_radius = 0.8;
+	private double connection_density = 1.0;
+	private double spectral_radius = 0.9;
 	private Neuron neuron;
 	private NeuronType neuron_type = NeuronType.Tanh;
 	
@@ -24,8 +25,12 @@ public class EchoStateLiquid {
 		HH = new double[hidden_dimension][hidden_dimension];
 		
 		for (int j = 0; j < hidden_dimension; j++) {
-			for (int i = 0; i < input_dimension; i++)
-				IH[j][i] = r.nextGaussian() * (input_weight_range/(double)input_dimension);	
+			for (int i = 0; i < input_dimension; i++) {
+				if (r.nextDouble() < connection_density)
+					IH[j][i] = r.nextGaussian() * (input_weight_range/input_dimension);	
+				else
+					IH[j][i] = 0.0;
+			}
 			for (int k = 0; k < hidden_dimension; k++)
 				HH[k][j] = r.nextGaussian();
 		}
