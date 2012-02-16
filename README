@@ -1,0 +1,6 @@
+This is a first stab at implementing an Echo State Network in Java - see here for details: http://www.scholarpedia.org/article/Echo_state_network
+
+Rather than a linear readout function, a feedforward neural network is used instead.
+
+This code makes use of the public domain numerical linear algebra library JAMA: http://math.nist.gov/javanumerics/jama/
+ 
